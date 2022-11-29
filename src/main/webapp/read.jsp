@@ -7,7 +7,7 @@
 <%@page import="com.mongodb.client.MongoCollection"%>
 <%@page import="com.mongodb.client.MongoDatabase"%>
 <%@page import="com.mongodb.MongoClient"%>
-<%@page import="member.Member"%>
+<%@ include file="newOne.jsp" %>
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
     pageEncoding="EUC-KR"%>
 <!DOCTYPE html>
@@ -30,11 +30,13 @@
 	String db = m.getDB();
 	String collection = m.getCollection();
 	
+	
+	
 	MongoClient mongoClient = new MongoClient("localhost", port);
 	MongoDatabase mongoDB = mongoClient.getDatabase(db);
 	MongoCollection<Document> c = mongoDB.getCollection(collection);
 	
-	System.out.println("read 연결 성공 ! ");
+	System.out.println("read 연결 성공 ! port " + port + " / db " + db + " /  collection " + collection);
 	
 	FindIterable<Document> doc = find(mongoClient, mongoDB, c);
 	System.out.println("몇개인지 ? "  + c.count());
