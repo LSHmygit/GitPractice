@@ -36,7 +36,7 @@
 	MongoDatabase mongoDB = mongoClient.getDatabase(db);
 	MongoCollection<Document> c = mongoDB.getCollection(collection);
 	
-	System.out.println("read 연결 성공 ! port " + port + " / db " + db + " /  collection " + collection);
+	System.out.println("read 연결 성공 ! port " + port + " / db " + db + " / collection " + collection);
 	
 	FindIterable<Document> doc = find(mongoClient, mongoDB, c);
 	System.out.println("몇개인지 ? "  + c.count());
